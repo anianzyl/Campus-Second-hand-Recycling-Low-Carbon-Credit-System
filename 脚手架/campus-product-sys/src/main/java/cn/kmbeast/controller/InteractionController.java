@@ -21,6 +21,31 @@ public class InteractionController {
     private InteractionService interactionService;
 
     /**
+     * "我想要"操作
+     *
+     * @param productId 商品ID
+     * @return Result<Boolean> 后台通用返回封装类
+     */
+    @PostMapping(value = "/likeProduct/{productId}")
+    @ResponseBody
+    public Result<String> likeProduct(@PathVariable Integer productId) {
+        return interactionService.likeProduct(productId);
+    }
+
+    /**
+     * 收藏操作 （取消收藏与收藏是一组对立的操作）
+     *
+     * @param productId 商品ID
+     * @return Result<Boolean> 后台通用返回封装类
+     */
+    @PostMapping(value = "/saveOperation/{productId}")
+    @ResponseBody
+    public Result<Boolean> saveOperation(@PathVariable Integer productId) {
+        return interactionService.saveOperation(productId);
+    }
+
+
+    /**
      * 批量删除
      */
     @PostMapping(value = "/batchDelete")

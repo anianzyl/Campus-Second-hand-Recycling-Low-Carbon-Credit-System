@@ -4,6 +4,8 @@ import cn.kmbeast.aop.Pager;
 import cn.kmbeast.context.LocalThreadHolder;
 import cn.kmbeast.pojo.api.Result;
 import cn.kmbeast.pojo.dto.query.extend.ProductQueryDto;
+import cn.kmbeast.pojo.dto.update.OrdersDTO;
+import cn.kmbeast.pojo.entity.Orders;
 import cn.kmbeast.pojo.entity.Product;
 import cn.kmbeast.pojo.vo.ProductVO;
 import cn.kmbeast.service.ProductService;
@@ -21,6 +23,19 @@ public class ProductController {
 
     @Resource
     private ProductService productService;
+
+    /**
+     * 商品下单
+     *
+     * @param ordersDTO 参数
+     * @return Result<String> 响应结果
+     */
+    @PostMapping(value = "/buyProduct")
+    @ResponseBody
+    public Result<String> buyProduct(@RequestBody OrdersDTO ordersDTO) {
+        return productService.buyProduct(ordersDTO);
+    }
+
 
     /**
      * 新增
@@ -67,6 +82,31 @@ public class ProductController {
     public Result<List<ProductVO>> query(@RequestBody ProductQueryDto productQueryDto) {
         return productService.query(productQueryDto);
     }
+
+    /**
+     * 商品下单
+     *
+     * @param ordersId 订单ID
+     * @return Result<String> 响应结果
+     */
+    @PostMapping(value = "/placeAnOrder/{ordersId}")
+    @ResponseBody
+    public Result<String> placeAnOrder(@PathVariable Integer ordersId) {
+        return productService.placeAnOrder(ordersId);
+    }
+
+    /**
+     * 申请退款
+     *
+     * @param ordersId 订单ID
+     * @return Result<String> 响应结果
+     */
+    @PostMapping(value = "/refund/{ordersId}")
+    @ResponseBody
+    public Result<String> refund(@PathVariable Integer ordersId) {
+        return productService.refund(ordersId);
+    }
+
 
     /**
      * 查询用户商品列表
