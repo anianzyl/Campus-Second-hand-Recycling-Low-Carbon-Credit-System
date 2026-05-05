@@ -4,9 +4,9 @@
 
     <insert id="save">
         INSERT INTO orders (code, detail, user_id, product_id, buy_price, buy_number,trade_status, trade_time, refund_status,
-        refund_time, is_refund_confirm, create_time)
+                            refund_time, is_refund_confirm, create_time)
         VALUES (#{code}, #{detail}, #{userId}, #{productId}, #{buyPrice},#{buyNumber},#{tradeStatus}, #{tradeTime}, #{refundStatus},
-        #{refundTime}, #{isRefundConfirm}, #{createTime})
+                #{refundTime}, #{isRefundConfirm}, #{createTime})
     </insert>
 
     <update id="update">
@@ -77,6 +77,9 @@
             <if test="refundStatus != null">
                 AND o.refund_status = #{refundStatus}
             </if>
+            <if test="startTime != null and endTime != null">
+                AND o.create_time BETWEEN #{startTime} AND #{endTime}
+            </if>
         </where>
         ORDER BY o.id DESC
         <if test="current != null and size != null">
@@ -107,6 +110,9 @@
             </if>
             <if test="refundStatus != null">
                 AND o.refund_status = #{refundStatus}
+            </if>
+            <if test="startTime != null and endTime != null">
+                AND o.create_time BETWEEN #{startTime} AND #{endTime}
             </if>
         </where>
 

@@ -1,21 +1,27 @@
 package cn.kmbeast.service.impl;
 
 import cn.kmbeast.context.LocalThreadHolder;
+import cn.kmbeast.mapper.InteractionMapper;
 import cn.kmbeast.mapper.OrdersMapper;
 import cn.kmbeast.mapper.ProductMapper;
 import cn.kmbeast.pojo.api.ApiResult;
 import cn.kmbeast.pojo.api.Result;
 import cn.kmbeast.pojo.dto.query.extend.ProductQueryDto;
 import cn.kmbeast.pojo.dto.update.OrdersDTO;
+import cn.kmbeast.pojo.em.InteractionEnum;
+import cn.kmbeast.pojo.entity.Interaction;
 import cn.kmbeast.pojo.entity.Orders;
 import cn.kmbeast.pojo.entity.Product;
+import cn.kmbeast.pojo.vo.ChartVO;
 import cn.kmbeast.pojo.vo.ProductVO;
 import cn.kmbeast.service.ProductService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * 商品类别业务逻辑接口实现类
@@ -27,6 +33,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductMapper productMapper;
     @Resource
     private OrdersMapper ordersMapper;
+    @Resource
+    private InteractionMapper interactionMapper;
 
     /**
      * 新增
@@ -142,6 +150,7 @@ public class ProductServiceImpl implements ProductService {
 
     /**
      * 商品下单
+     *
      * @param ordersId 订单ID
      * @return Result<String> 通用返回封装类
      */
@@ -168,5 +177,42 @@ public class ProductServiceImpl implements ProductService {
         orders.setRefundStatus(true);
         ordersMapper.update(orders);
         return ApiResult.success("申请退款成功，请等待卖家审核");
+    }
+
+    /**
+     * 查询用户商品指标情况
+     *
+     * @param productQueryDto 查询参数
+     * @return Result<List < ChartVO>> 响应结果
+     */
+    @Override
+    public Result<List<ChartVO>> queryProductInfo(ProductQueryDto productQueryDto) {
+        List<Integer> productIds = productMapper.queryProductIds(productQueryDto.getUserId());
+        List<Interaction> interactionList = interactionMapper.queryByProductIds(productIds);
+        // 浏览、收藏、想要
+        long viewCount = getProductCount(interactionList, InteractionEnum.VIEW.getType());
+        long saveCount = getProductCount(interactionList, InteractionEnum.SAVE.getType());
+        long loveCount = getProductCount(interactionList, InteractionEnum.LOVE.getType());
+        List<ChartVO> chartVOList = new ArrayList<>();
+        ChartVO chartVOView = new ChartVO("商品被浏览",(int)viewCount);
+        ChartVO chartVOSave = new ChartVO("商品被收藏",(int)saveCount);
+        ChartVO chartVOLove = new ChartVO("商品被想要",(int)loveCount);
+        chartVOList.add(chartVOView);
+        chartVOList.add(chartVOSave);
+        chartVOList.add(chartVOLove);
+        return ApiResult.success(chartVOList);
+    }
+
+    /**
+     * 过滤指定的商品指标数据
+     *
+     * @param interactionList 互动数据源
+     * @param type            互动类型
+     * @return long
+     */
+    private long getProductCount(List<Interaction> interactionList, Integer type) {
+        return interactionList.stream()
+                .filter(interaction -> Objects.equals(type, interaction.getType()))
+                .count();
     }
 }

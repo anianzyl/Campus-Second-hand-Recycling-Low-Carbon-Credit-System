@@ -52,4 +52,6 @@ public interface ProductMapper {
     void batchDelete(@Param(value = "ids") List<Integer> ids);
 
     List<Integer> queryProductIds(@Param(value = "userId") Integer userId);
+
+    List<ProductVO> queryProductList(@Param(value = "ids") List<Integer> ids);
 }

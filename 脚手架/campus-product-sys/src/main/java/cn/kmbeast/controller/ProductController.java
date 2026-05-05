@@ -1,12 +1,13 @@
 package cn.kmbeast.controller;
 
+import cn.kmbeast.aop.Log;
 import cn.kmbeast.aop.Pager;
 import cn.kmbeast.context.LocalThreadHolder;
 import cn.kmbeast.pojo.api.Result;
 import cn.kmbeast.pojo.dto.query.extend.ProductQueryDto;
 import cn.kmbeast.pojo.dto.update.OrdersDTO;
-import cn.kmbeast.pojo.entity.Orders;
 import cn.kmbeast.pojo.entity.Product;
+import cn.kmbeast.pojo.vo.ChartVO;
 import cn.kmbeast.pojo.vo.ProductVO;
 import cn.kmbeast.service.ProductService;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +31,7 @@ public class ProductController {
      * @param ordersDTO 参数
      * @return Result<String> 响应结果
      */
+    @Log(detail = "商品下单")
     @PostMapping(value = "/buyProduct")
     @ResponseBody
     public Result<String> buyProduct(@RequestBody OrdersDTO ordersDTO) {
@@ -43,6 +45,7 @@ public class ProductController {
      * @param product 参数
      * @return Result<String> 响应结果
      */
+    @Log(detail = "商品上架")
     @PostMapping(value = "/save")
     @ResponseBody
     public Result<String> save(@RequestBody Product product) {
@@ -55,6 +58,7 @@ public class ProductController {
      * @param product 参数
      * @return Result<String> 响应结果
      */
+    @Log(detail = "商品修改")
     @PutMapping(value = "/update")
     @ResponseBody
     public Result<String> update(@RequestBody Product product) {
@@ -101,12 +105,25 @@ public class ProductController {
      * @param ordersId 订单ID
      * @return Result<String> 响应结果
      */
+    @Log(detail = "商品申请退款")
     @PostMapping(value = "/refund/{ordersId}")
     @ResponseBody
     public Result<String> refund(@PathVariable Integer ordersId) {
         return productService.refund(ordersId);
     }
 
+    /**
+     * 查询用户商品指标情况
+     *
+     * @param productQueryDto 查询参数
+     * @return Result<List < ChartVO>> 响应结果
+     */
+    @PostMapping(value = "/queryProductInfo")
+    @ResponseBody
+    public Result<List<ChartVO>> queryProductInfo(@RequestBody ProductQueryDto productQueryDto) {
+        productQueryDto.setUserId(LocalThreadHolder.getUserId());
+        return productService.queryProductInfo(productQueryDto);
+    }
 
     /**
      * 查询用户商品列表
