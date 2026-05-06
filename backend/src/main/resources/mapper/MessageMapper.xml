@@ -31,6 +31,9 @@
             <if test="userId != null">
                 AND m.user_id = #{userId}
             </if>
+            <if test="content != null and content !=''">
+                AND m.content LIKE concat('%',#{content},'%')
+            </if>
             <if test="startTime != null and endTime != null">
                 AND m.create_time BETWEEN #{startTime} AND #{endTime}
             </if>
@@ -49,6 +52,9 @@
         <where>
             <if test="userId != null">
                 AND m.user_id = #{userId}
+            </if>
+            <if test="content != null and content !=''">
+                AND m.content LIKE concat('%',#{content},'%')
             </if>
             <if test="startTime != null and endTime != null">
                 AND m.create_time BETWEEN #{startTime} AND #{endTime}
