@@ -9,8 +9,8 @@ Vue.use(ElementUI);
 Vue.use(VueRouter);
 
 const routes = [
-  { path: "/", redirect: "/login" },  // 临时重定向到登录页
-  // { path: "/", component: () => import(`@/views/category/Home.vue`) },
+  // { path: "/", redirect: "/login" },  // 临时重定向到登录页
+  { path: "/", component: () => import(`@/views/category/Home.vue`) },
   { path: "/login", component: () => import(`@/views/login/Login.vue`) },
   { path: "/register", component: () => import(`@/views/register/Register.vue`) },
   {
@@ -25,22 +25,23 @@ const routes = [
       // { path: "/evaluations", name: '评论管理', icon: 'el-icon-chat-dot-round', component: () => import(`@/views/admin/Evaluations.vue`), meta: { requireAuth: true } },
     ]
   },
-//   {
-//     path: "/category",
-//     component: () => import(`@/views/category/Home.vue`),
-//     meta: { requireAuth: true },
-//     children: [
-//       { name: '商品', path: "/product", component: () => import(`@/views/category/Product.vue`), meta: { requireAuth: true } },
-//       { name: '我的商品', path: "/myProduct", component: () => import(`@/views/category/MyProduct.vue`), meta: { requireAuth: true } },
-//       { name: '我的收藏', path: "/mySave", component: () => import(`@/views/category/MySave.vue`), meta: { requireAuth: true } },
-//       { name: '足迹', path: "/myView", component: () => import(`@/views/category/MyView.vue`), meta: { requireAuth: true } },
-//       { name: '订单', path: "/orders", component: () => import(`@/views/category/Orders.vue`), meta: { requireAuth: true } },
-//       { name: '消息', path: "/message", component: () => import(`@/views/category/Message.vue`), meta: { requireAuth: true } },
-//       { name: '个人中心', path: "/myself", component: () => import(`@/views/category/Myself.vue`), meta: { requireAuth: true } },
-//       { name: '搜索页', path: "/search", show: false, auth: false, component: () => import(`@/views/category/Search.vue`), meta: { requireAuth: true } },
-//       { name: '发布商品', path: "/post-product", component: () => import(`@/views/category/PostProduct.vue`), meta: { requireAuth: true } },
-//     ]
-//   }
+  {
+    path: "/category",
+    component: () => import(`@/views/category/Home.vue`),
+    meta: { requireAuth: true },
+    children: [
+      { name: '商品', path: "/product", component: () => import(`@/views/category/Product.vue`), meta: { requireAuth: true } },
+      { name: '我的商品', path: "/myProduct", component: () => import(`@/views/category/MyProduct.vue`), meta: { requireAuth: true } },
+      { name: '我的收藏', path: "/mySave", component: () => import(`@/views/category/MySave.vue`), meta: { requireAuth: true } },
+      { name: '足迹', path: "/myView", component: () => import(`@/views/category/MyView.vue`), meta: { requireAuth: true } },
+      { name: '订单', path: "/orders", component: () => import(`@/views/category/Orders.vue`), meta: { requireAuth: true } },
+      { name: '消息', path: "/message", component: () => import(`@/views/category/Message.vue`), meta: { requireAuth: true } },
+      { name: '个人中心', path: "/myself", component: () => import(`@/views/category/Myself.vue`), meta: { requireAuth: true } },
+      { name: '搜索页', path: "/search", show: false, auth: false, component: () => import(`@/views/category/Search.vue`), meta: { requireAuth: true } },
+      { name: '发布商品', path: "/post-product", component: () => import(`@/views/category/PostProduct.vue`), meta: { requireAuth: true } },
+      { name: '商品详情', path: "/product-detail", component: () => import(`@/views/user/ProductDetail.vue`), meta: { requireAuth: true } },
+    ]
+  }
 ];
 
 const router = new VueRouter({
