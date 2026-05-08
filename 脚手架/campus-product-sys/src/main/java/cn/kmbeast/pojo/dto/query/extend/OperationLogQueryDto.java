@@ -5,17 +5,17 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 消息的查询条件Dto类
+ * 操作日志查询条件类
  */
 @Data
-@EqualsAndHashCode(callSuper = false)
-public class MessageQueryDto extends QueryDto {
+@EqualsAndHashCode(callSuper = true)
+public class OperationLogQueryDto extends QueryDto {
     /**
      * 用户ID
      */
     private Integer userId;
     /**
-     * 消息体
+     * 描述
      */
-    private String content;
+    private String detail;
 }
