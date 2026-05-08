@@ -19,7 +19,7 @@ const routes = [
     meta: { requireAuth: true },
     children: [
       { path: "/adminLayout", name: '仪表盘', icon: 'el-icon-pie-chart', component: () => import(`@/views/admin/Main.vue`), meta: { requireAuth: true } },
-      // { path: "/categoryManage", name: '用户管理', icon: 'el-icon-user-solid', component: () => import(`@/views/admin/category.vue`), meta: { requireAuth: true } },
+      { path: "/categoryManage", name: '用户管理', icon: 'el-icon-user-solid', component: () => import(`@/views/admin/category.vue`), meta: { requireAuth: true } },
       { path: "/productManage", name: '商品管理', icon: 'el-icon-shopping-bag-1', component: () => import(`@/views/admin/Product.vue`), meta: { requireAuth: true } },
       { path: "/categoryManage", name: '商品类别管理', icon: 'el-icon-document-checked', component: () => import(`@/views/admin/Category.vue`), meta: { requireAuth: true } },
       // { path: "/evaluations", name: '评论管理', icon: 'el-icon-chat-dot-round', component: () => import(`@/views/admin/Evaluations.vue`), meta: { requireAuth: true } },
@@ -39,6 +39,7 @@ const routes = [
       { name: '个人中心', path: "/myself", component: () => import(`@/views/category/Myself.vue`), meta: { requireAuth: true } },
       { name: '搜索页', path: "/search", show: false, auth: false, component: () => import(`@/views/category/Search.vue`), meta: { requireAuth: true } },
       { name: '发布商品', path: "/post-product", component: () => import(`@/views/category/PostProduct.vue`), meta: { requireAuth: true } },
+      { name: '编辑商品', path: "/edit-product", component: () => import(`@/views/user/EditProduct.vue`), meta: { requireAuth: true } },
       { name: '商品详情', path: "/product-detail", component: () => import(`@/views/user/ProductDetail.vue`), meta: { requireAuth: true } },
     ]
   }
