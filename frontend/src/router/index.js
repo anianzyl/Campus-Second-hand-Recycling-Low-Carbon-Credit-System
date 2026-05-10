@@ -21,6 +21,7 @@ const routes = [
       { path: "/adminLayout", name: '仪表盘', icon: 'el-icon-pie-chart', component: () => import(`@/views/admin/Main.vue`), meta: { requireAuth: true } },
       { path: "/categoryManage", name: '用户管理', icon: 'el-icon-user-solid', component: () => import(`@/views/admin/category.vue`), meta: { requireAuth: true } },
       { path: "/productManage", name: '商品管理', icon: 'el-icon-shopping-bag-1', component: () => import(`@/views/admin/Product.vue`), meta: { requireAuth: true } },
+      { path: "/ordersManage", name: '订单管理', icon: 'el-icon-document-copy', component: () => import(`@/views/admin/Orders.vue`), meta: { requireAuth: true } },
       { path: "/categoryManage", name: '商品类别管理', icon: 'el-icon-document-checked', component: () => import(`@/views/admin/Category.vue`), meta: { requireAuth: true } },
       // { path: "/evaluations", name: '评论管理', icon: 'el-icon-chat-dot-round', component: () => import(`@/views/admin/Evaluations.vue`), meta: { requireAuth: true } },
     ]
