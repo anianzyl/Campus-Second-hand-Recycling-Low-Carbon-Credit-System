@@ -1,15 +1,15 @@
 package cn.kmbeast.pojo.vo;
 
-import cn.kmbeast.pojo.entity.Interaction;
+import cn.kmbeast.pojo.entity.OperationLog;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- * 互动行为信息VO类
+ * 操作日志出参类
  */
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class InteractionVO extends Interaction {
+public class OperationLogVO extends OperationLog {
     /**
      * 用户名
      */
@@ -18,8 +18,4 @@ public class InteractionVO extends Interaction {
      * 用户账号
      */
     private String userAccount;
-    /**
-     * 商品标题
-     */
-    private String productTitle;
 }
