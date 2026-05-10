@@ -34,7 +34,7 @@
                 <el-empty description="暂无商品信息"></el-empty>
             </el-row>
             <el-row v-else>
-                <el-col :span="6" v-for="(product, index) in productList" :key="index">
+                <el-col @click.native="route(product)" :span="6" v-for="(product, index) in productList" :key="index">
                     <div class="item-product">
                         <div class="cover">
                             <img :src="coverListParse(product)" alt="" srcset="">
@@ -83,6 +83,10 @@ export default {
         this.bargainSelected(this.bargainStatus[0]);
     },
     methods: {
+        route(product) {
+            // 跳转商品详情
+            this.$router.push('/product-detail?productId=' + product.id);
+        },
         coverListParse(product) {
             if (product.coverList === null) {
                 return;

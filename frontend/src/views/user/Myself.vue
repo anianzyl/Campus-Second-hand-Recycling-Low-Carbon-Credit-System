@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import ResetPwd from '@/views/category/ResetPwd'
-import Self from '@/views/category/Self'
+import ResetPwd from '@/views/user/ResetPwd'
+import Self from '@/views/user/Self'
 export default {
     components: { ResetPwd, Self },
     data() {
@@ -46,6 +46,7 @@ export default {
     methods: {
         loginout() {
             sessionStorage.setItem('token', null);
+            sessionStorage.setItem('userInfo', null);
             this.$router.push('/login');
         },
         condition(tag) {
