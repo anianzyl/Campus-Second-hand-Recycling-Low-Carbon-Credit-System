@@ -46,13 +46,14 @@
                     <span>立即购买</span>
                 </div>
                 <div class="right">
-                    <span><i class="el-icon-star-off"></i>收藏</span>
+                    <span @click="saveOperation"><i style="margin-right: 5px;" class="el-icon-star-off"></i>{{ saveFlag ? '取消收藏' : '收藏' }}</span>
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
+import { getUserInfo } from "@/utils/storage"
 export default {
     name: 'ProductDetail',
     data() {
@@ -63,6 +64,7 @@ export default {
             coverIndex: 0,
             coverItem: null,
             keyInterval: null,
+            saveFlag: false, // 判断用户是否已经收藏
         }
     },
     created() {
@@ -72,6 +74,48 @@ export default {
         this.clearBanner(); // 清除定时器
     },
     methods: {
+        querySaveStatus() {
+            // 判断用户是否已经登录
+            const userInfo = getUserInfo();
+            if (userInfo === null) { // 没登录不用查
+                console.log("用户没登录");
+                return;
+            }
+            const interactionQueryDto = {
+                userId: userInfo.id,
+                productId: this.product.id,
+                type: 1 // 1代表的是收藏行为
+            };
+            this.$axios.post('/interaction/query', interactionQueryDto).then(res => {
+                const { data } = res; // 解构
+                if (data.code === 200) {
+                    // 代表没有收藏
+                    this.saveFlag = data.total !== 0;
+                }
+            }).catch(error => {
+                console.log("商品查询异常：", error);
+            })
+        },
+        /**
+         * 收藏操作 （收藏跟取消收藏是一组对立的操作）
+         */
+        saveOperation() {
+            this.$axios.post(`/interaction/saveOperation/${this.product.id}`).then(res => {
+                const { data } = res; // 解构
+                if (data.code === 200) {
+                    // 代表没有收藏
+                    this.saveFlag = data.data;
+                    this.$notify({
+                        duration: 1000,
+                        title: '收藏操作成功',
+                        message: data.msg,
+                        type: 'success'
+                    });
+                }
+            }).catch(error => {
+                console.log("商品查询异常：", error);
+            })
+        },
         clearBanner() {
             if (this.keyInterval) {
                 clearInterval(this.keyInterval);
@@ -132,6 +176,7 @@ export default {
                 if (data.code === 200) {
                     this.product = data.data[0];
                     this.coverListParse(this.product);
+                    this.querySaveStatus();
                 }
             }).catch(error => {
                 console.log("商品查询异常：", error);
@@ -151,17 +196,18 @@ export default {
         font-size: 14px;
         cursor: pointer;
 
-        .right{
-            span:hover{
-                background-color: rgb(241,241,241);    
+        .right {
+            span:hover {
+                background-color: rgb(241, 241, 241);
             }
+
             span {
                 display: inline-block;
                 width: 100px;
                 text-align: center;
-                background-color: rgb(246,246,246);
+                background-color: rgb(246, 246, 246);
                 border-radius: 20px;
-                
+
             }
         }
 
@@ -183,7 +229,7 @@ export default {
 
             span:last-child {
                 background-color: rgb(59, 59, 59);
-                color: rgb(245,245,245);
+                color: rgb(245, 245, 245);
                 border-top-right-radius: 20px;
                 border-bottom-right-radius: 20px;
             }
