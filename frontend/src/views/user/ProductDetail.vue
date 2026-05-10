@@ -30,6 +30,12 @@
                 <span class="bargain">{{ product.isBargain ? '可砍价' : '不支持砍价' }}</span>
             </div>
             <div class="decimal">
+                <span class="love">{{ product.likeNumber }}人想要</span>
+                <span style="border: 2px solid rgb(214, 214, 214);border-radius: 50%;"></span>
+                <span class="love">{{ product.saveNumber }}人收藏</span>
+                <span style="border: 2px solid rgb(214, 214, 214);border-radius: 50%;"></span>
+                <span class="love">{{ product.viewNumber }}人浏览</span>
+                <span style="border: 2px solid rgb(214, 214, 214);border-radius: 50%;"></span>
                 <span>{{ product.oldLevel }}成新</span>
                 <span style="border: 2px solid rgb(214, 214, 214);border-radius: 50%;"></span>
                 <span>库存&nbsp;{{ product.inventory }}（件/盒/箱..）</span>
@@ -50,6 +56,9 @@
                         ? '取消收藏' : '收藏' }}</span>
                 </div>
             </div>
+            <div v-if="userInfo !== null">
+                <Evaluations contentType="PRODUCT" :contentId="product.id"/>
+            </div>
         </div>
         <el-dialog :show-close="false" :visible.sync="dialogProductOperaion" width="35%">
             <div style="padding:16px 20px;">
@@ -66,6 +75,7 @@
                         <span class="bargain">{{ product.isBargain ? '可砍价' : '不支持砍价' }}</span>
                     </div>
                     <div class="decimal">
+                        <span style="border: 2px solid rgb(214, 214, 214);border-radius: 50%;"></span>
                         <span>{{ product.oldLevel }}成新</span>
                         <span style="border: 2px solid rgb(214, 214, 214);border-radius: 50%;"></span>
                         <span>库存&nbsp;{{ product.inventory }}（件/盒/箱..）</span>
@@ -98,7 +108,9 @@
 </template>
 <script>
 import { getUserInfo } from "@/utils/storage"
+import Evaluations from "@/components/Evaluations"
 export default {
+    components: { Evaluations },
     name: 'ProductDetail',
     data() {
         return {
@@ -111,16 +123,35 @@ export default {
             saveFlag: false, // 判断用户是否已经收藏
             dialogProductOperaion: false,
             buyNumber: 1,
-            detail: ''
+            detail: '',
+            userInfo: null
         }
     },
     created() {
         this.getParam();
+        this.viewOperation();
     },
     beforeDestroy() {
         this.clearBanner(); // 清除定时器
     },
     methods: {
+        // 浏览操作
+        viewOperation() {
+            const userInfo = getUserInfo();
+            if (userInfo === null) { // 没登录不用记录
+                return;
+            }
+            this.userInfo = userInfo;
+            // 对于用户这是无感的
+            this.$axios.post(`/interaction/view/${this.productId}`).then(res => {
+                const { data } = res; // 解构
+                if (data.code === 200) {
+                    console.log("用户浏览已经处理");
+                }
+            }).catch(error => {
+                console.log("浏览记录异常：", error);
+            })
+        },
         /**
          * 商品下单
          */
@@ -300,6 +331,10 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+.love {
+    font-size: 14px;
+    color: #999;
+}
 .info {
     width: 500px;
 
@@ -402,8 +437,7 @@ export default {
             margin: 10px;
             display: flex;
             justify-content: left;
-            align-items: center;
-            gap: 20px;
+            gap: 10px;
 
             i:hover {
                 background-color: rgb(246, 246, 246);

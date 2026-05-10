@@ -48,7 +48,7 @@
                         <div style="padding-block: 15px;">
                             <span class="decimel-symbol">¥</span>
                             <span class="price">{{ product.price }}</span>
-                            <span class="love">4人想要</span>
+                            <span class="love">{{ product.likeNumber }}人想要</span>
                         </div>
                         <div class="info">
                             <img :src="product.userAvatar" alt="" srcset="">
