@@ -27,7 +27,7 @@
                 <span style="border: 2px solid rgb(214, 214, 214);border-radius: 50%;"></span>
                 <img :src="product.userAvatar" style="width: 20px;height: 20px;border-radius: 50%;" alt="" srcset="">
                 <span>{{ product.userName }}</span>
-                <span class="bargain">{{ product.isBargain ? '支持砍价' : '不支持砍价' }}</span>
+                <span class="bargain">{{ product.isBargain ? '可砍价' : '不支持砍价' }}</span>
             </div>
             <div class="decimal">
                 <span>{{ product.oldLevel }}成新</span>
@@ -42,7 +42,7 @@
             </div>
             <div class="operation">
                 <div class="left">
-                    <span><i class="el-icon-sell" style="margin-right: 5px;"></i>我想要</span>
+                    <span @click="likeProduct"><i class="el-icon-sell" style="margin-right: 5px;"></i>我想要</span>
                     <span>立即购买</span>
                 </div>
                 <div class="right">
@@ -74,6 +74,28 @@ export default {
         this.clearBanner(); // 清除定时器
     },
     methods: {
+        likeProduct(){
+            this.$axios.post(`/interaction/likeProduct/${this.product.id}`).then(res => {
+                const { data } = res; // 解构
+                if (data.code === 200) {
+                    this.$notify({
+                        duration: 1000,
+                        title: '想要操作通知',
+                        message: data.msg,
+                        type: 'success'
+                    });
+                }else{
+                    this.$notify({
+                        duration: 2000,
+                        title: '想要操作通知',
+                        message: data.msg,
+                        type: 'info'
+                    });
+                }
+            }).catch(error => {
+                console.log("商品---想要---异常：", error);
+            })
+        },
         querySaveStatus() {
             // 判断用户是否已经登录
             const userInfo = getUserInfo();
@@ -252,6 +274,7 @@ export default {
         gap: 10px;
         font-size: 14px;
         margin-block: 6px;
+        width: 500px;
 
         .price {
             .symbol {
@@ -288,7 +311,7 @@ export default {
             display: flex;
             justify-content: left;
             align-items: center;
-            gap: 40px;
+            gap: 20px;
 
             i:hover {
                 background-color: rgb(246, 246, 246);
