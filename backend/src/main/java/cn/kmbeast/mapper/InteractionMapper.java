@@ -42,4 +42,11 @@ public interface InteractionMapper {
      */
     void batchDelete(@Param(value = "ids") List<Integer> ids);
 
+    /**
+     * 根据商品ID集合查询互动信息
+     *
+     * @param productIds 商品ID集合
+     * @return List<Interaction>
+     */
+    List<Interaction> queryByProductIds(@Param(value = "productIds") List<Integer> productIds);
 }
