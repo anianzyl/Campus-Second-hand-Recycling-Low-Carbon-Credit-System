@@ -6,7 +6,7 @@
                 <input v-model="act" class="act" placeholder="新账号" />
             </div>
             <div class="text">
-                <input v-model="name" class="act" placeholder="新商品类别名" />
+                <input v-model="name" class="act" placeholder="新用户名" />
             </div>
             <div class="text">
                 <input v-model="pwd" class="pwd" type="password" placeholder="输入密码" />
@@ -37,7 +37,7 @@ export default {
             act: '', // 账号
             pwd: '', // 密码
             pwdConfirm: '', // 确认密码
-            name: '' // 商品类别名
+            name: '' // 用户名
         }
     },
     methods: {
@@ -49,7 +49,7 @@ export default {
             if (!this.act || !this.pwd || !this.pwdConfirm || !this.name ) {
                 this.$swal.fire({
                     title: '填写校验',
-                    text: '账号或密码或商品类别名不能为空',
+                    text: '账号或密码或用户名不能为空',
                     icon: 'error',
                     showConfirmButton: false,
                     timer: DELAY_TIME,
