@@ -3,8 +3,8 @@
         <div class="nav-category">
             <div class="left">
                 <span :style="{
-                    color: categorySelectedItem.name === isUseCategory.name ? 'rgb(248,248,248)' : '',
-                    backgroundColor: categorySelectedItem.name === isUseCategory.name ? 'rgb(255,209,80)' : ''
+                    color: categorySelectedItem.name === isUseCategory.name ? 'rgb(51, 51, 51)' : '',
+                    backgroundColor: categorySelectedItem.name === isUseCategory.name ? 'rgb(254, 223, 70)' : ''
                 }" @click="categorySelected(isUseCategory)" :key="index"
                     v-for="(isUseCategory, index) in isUseCategoryList">
                     {{ isUseCategory.name }}
@@ -13,8 +13,8 @@
             <div class="right">
                 <span class="bargain">
                     <span :style="{
-                        color: bargainSelectedItem.name === bargain.name ? 'rgb(248,248,248)' : '',
-                        backgroundColor: bargainSelectedItem.name === bargain.name ? 'rgb(255, 209, 80)' : ''
+                        color: bargainSelectedItem.name === bargain.name ? 'rgb(51,51,51)' : '',
+                        backgroundColor: bargainSelectedItem.name === bargain.name ? 'rgb(254, 223, 70)' : ''
                     }" @click="bargainSelected(bargain)" v-for="(bargain, index) in bargainStatus" :key="index">{{
                         bargain.name }}</span>
                 </span>

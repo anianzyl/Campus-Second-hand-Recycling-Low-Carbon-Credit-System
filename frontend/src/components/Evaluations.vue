@@ -238,12 +238,12 @@ export default {
                     // 取消点赞
                     let index = upvoteList.indexOf(this.userData.id.toString());
                     if (index !== -1) {
-                        upvoteList.splice(index, 1); // 移除商品类别ID
+                        upvoteList.splice(index, 1); // 移除用户ID
                     }
                 } else {
                     // 点赞
                     if (!upvoteList.includes(this.userData.userId.toString())) {
-                        upvoteList.push(this.userData.userId.toString()); // 添加商品类别ID
+                        upvoteList.push(this.userData.userId.toString()); // 添加用户ID
                     }
                 }
             }

@@ -66,7 +66,7 @@ export default {
                 });
                 return;
             }
-            const hashedPwd = md5(this.pwd);
+            const hashedPwd = md5(md5(this.pwd));
             const paramDTO = { userAccount: this.act, userPwd: hashedPwd, userName: this.name };
             try {
                 const { data } = await request.post(`user/register`, paramDTO);

@@ -41,7 +41,7 @@ export default {
                 newPwd: this.$md5(this.$md5(this.newPwd)),
                 againPwd: this.$md5(this.$md5(this.againPwd))
             }
-            const { data } = await this.$axios.put('/category/updatePwd', userUpdatePwdDTO);
+            const { data } = await this.$axios.put('/user/updatePwd', userUpdatePwdDTO);
             this.$notify({
                 duration: 1000,
                 title: '修改密码',

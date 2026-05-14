@@ -60,7 +60,7 @@ export default {
                 });
                 return;
             }
-            const hashedPwd = md5(this.pwd);
+            const hashedPwd = md5(md5(this.pwd));
             const paramDTO = { userAccount: this.act, userPwd: hashedPwd };
             try {
                 const { data } = await request.post(`user/login`, paramDTO);
@@ -91,8 +91,8 @@ export default {
                     this.$router.push('/admin');
                     break;
                 case 2:
-                    console.log("商品类别角色：", role);
-                    this.$router.push('/category');
+                    console.log("用户角色：", role);
+                    this.$router.push('/user');
                     break;
                 default:
                     console.warn('未知的角色类型:', role);

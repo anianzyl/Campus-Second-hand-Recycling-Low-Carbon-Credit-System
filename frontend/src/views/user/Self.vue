@@ -78,7 +78,7 @@ export default {
                 userName,
                 userEmail
             }
-            const { data } = await this.$axios.put('/category/update', userUpdateDTO);
+            const { data } = await this.$axios.put('/user/update', userUpdateDTO);
             this.$notify({
                 position: 'buttom-right',
                 duration: 1000,
@@ -99,14 +99,14 @@ export default {
                 message: res.code === 200 ? '上传成功' : '上传失败',
                 type: res.code === 200 ? 'success' : 'error'
             });
-            // 上传成功则更新商品类别头像
+            // 上传成功则更新用户头像
             if (res.code === 200) {
                 this.userAvatar = res.data;
             }
         },
-        // Token 检验 ,取得商品类别信息
+        // Token 检验 ,取得用户信息
         async auth() {
-            const { data } = await this.$axios.get('/category/auth');
+            const { data } = await this.$axios.get('/user/auth');
             if (data.code !== 200) { // Token校验异常
                 this.$router.push('/');
             } else {

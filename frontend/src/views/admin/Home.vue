@@ -35,15 +35,15 @@
                 </el-row>
                 <el-row>
                     <p style="font-size: 12px;padding: 3px 0;">
-                        <span class="modelName">*商品类别名</span>
+                        <span class="modelName">*用户名</span>
                     </p>
-                    <input class="input-title" v-model="userInfo.name" placeholder="商品类别名">
+                    <input class="input-title" v-model="userInfo.name" placeholder="用户名">
                 </el-row>
                 <el-row>
                     <p style="font-size: 12px;padding: 3px 0;">
-                        <span class="modelName">*商品类别邮箱</span>
+                        <span class="modelName">*用户邮箱</span>
                     </p>
-                    <input class="input-title" v-model="userInfo.email" placeholder="商品类别邮箱">
+                    <input class="input-title" v-model="userInfo.email" placeholder="用户邮箱">
                 </el-row>
             </el-row>
             <span slot="footer" class="dialog-footer">
@@ -103,7 +103,7 @@ export default {
                     userName: this.userInfo.name,
                     userEmail: this.userInfo.email
                 }
-                const resposne = await this.$axios.put(`/category/update`, userUpdateDTO);
+                const resposne = await this.$axios.put(`/user/update`, userUpdateDTO);
                 const { data } = resposne;
                 if (data.code === 200) {
                     this.dialogOperaion = false;
@@ -190,11 +190,11 @@ export default {
                     this.$router.push('/login');
                     return;
                 }
-                // 商品类别信息赋值
+                // 用户信息赋值
                 const { id, userAvatar: url, userName: name, userRole: role, userEmail: email } = res.data.data;
                 this.userInfo = { id, url, name, role, email };
                 // 根据角色解析路由
-                const rolePath = role === 1 ? '/admin' : '/category';
+                const rolePath = role === 1 ? '/admin' : '/user';
                 const targetMenu = router.options.routes.find(route => route.path === rolePath);
                 if (targetMenu) {
                     this.routers = targetMenu.children;
@@ -202,7 +202,7 @@ export default {
                     console.warn(`未找到与角色对应的路由：${rolePath}`);
                 }
             } catch (error) {
-                console.error('获取商品类别认证信息时发生错误:', error);
+                console.error('获取用户认证信息时发生错误:', error);
                 this.$message.error('认证信息加载失败，请重试！');
             }
         },

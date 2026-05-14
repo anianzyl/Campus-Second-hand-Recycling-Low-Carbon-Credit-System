@@ -3,12 +3,12 @@
         <el-row style="padding: 10px;margin-left: 5px;">
             <el-row>
                 <el-select style="width: 100px;margin-right: 5px;" @change="fetchFreshData" size="small"
-                    v-model="categoryQueryDto.isLogin" placeholder="登录状态">
+                    v-model="userQueryDto.isLogin" placeholder="登录状态">
                     <el-option v-for="item in loginStatuList" :key="item.value" :label="item.label" :value="item.value">
                     </el-option>
                 </el-select>
                 <el-select style="width: 100px;margin-right: 5px;" @change="fetchFreshData" size="small"
-                    v-model="categoryQueryDto.isWord" placeholder="禁言状态">
+                    v-model="userQueryDto.isWord" placeholder="禁言状态">
                     <el-option v-for="item in wordStatuList" :key="item.value" :label="item.label" :value="item.value">
                     </el-option>
                 </el-select>
@@ -16,12 +16,12 @@
                     v-model="searchTime" type="daterange" range-separator="至" start-placeholder="注册开始"
                     end-placeholder="注册结束">
                 </el-date-picker>
-                <el-input size="small" style="width: 166px;" v-model="categoryQueryDto.userName" placeholder="商品类别名" clearable
+                <el-input size="small" style="width: 166px;" v-model="userQueryDto.userName" placeholder="用户名" clearable
                     @clear="handleFilterClear">
                     <el-button slot="append" @click="handleFilter" icon="el-icon-search"></el-button>
                 </el-input>
                 <span style="float: right;" class="edit-button" @click="add()">
-                    新增商品类别
+                    新增用户
                 </span>
             </el-row>
         </el-row>
@@ -37,7 +37,7 @@
                 <el-table-column prop="userEmail" width="168" label="邮箱"></el-table-column>
                 <el-table-column prop="userRole" width="68" label="角色">
                     <template slot-scope="scope">
-                        <span>{{ scope.row.userRole === 1 ? '管理员' : '商品类别' }}</span>
+                        <span>{{ scope.row.userRole === 1 ? '管理员' : '用户' }}</span>
                     </template>
                 </el-table-column>
                 <el-table-column prop="isLogin" width="108" label="封号">
@@ -77,10 +77,10 @@
                 :total="totalItems"></el-pagination>
         </el-row>
         <!-- 操作面板 -->
-        <el-dialog :show-close="false" :visible.sync="dialogCategoryOperaion" width="25%">
+        <el-dialog :show-close="false" :visible.sync="dialogUserOperaion" width="25%">
             <div style="padding:16px 20px;">
                 <el-row>
-                    <p>商品类别头像</p>
+                    <p>用户头像</p>
                     <el-upload class="avatar-uploader"
                         action="http://localhost:21090/api/campus-product-sys/v1.0/file/upload" :show-file-list="false"
                         :on-success="handleAvatarSuccess">
@@ -125,7 +125,7 @@
                 </el-row>
                 <el-row style="margin: 20px 0;">
                     <p>*是否设置为管理员</p>
-                    <el-switch v-model="isAdmin" active-text="管理员" inactive-text="普通商品类别">
+                    <el-switch v-model="isAdmin" active-text="管理员" inactive-text="普通用户">
                     </el-switch>
                 </el-row>
             </div>
@@ -154,16 +154,16 @@ export default {
             pageSize: 10,
             totalItems: 0,
             dialogStatusOperation: false,
-            dialogCategoryOperaion: false, // 开关
+            dialogUserOperaion: false, // 开关
             isOperation: false, // 开关-标识新增或修改
             tableData: [],
             searchTime: [],
-            delectedRows: [],
+            selectedRows: [],
             status: null,
-            categoryQueryDto: {}, // 搜索条件
+            userQueryDto: {}, // 搜索条件
             loginStatuList: [{ value: null, label: '全部' }, { value: 0, label: '正常' }, { value: 1, label: '封号' }],
             wordStatuList: [{ value: null, label: '全部' }, { value: 0, label: '正常' }, { value: 1, label: '禁言' }],
-            rolesList: [{ value: null, label: '全部' }, { value: 2, label: '商品类别' }, { value: 1, label: '管理员' }]
+            rolesList: [{ value: null, label: '全部' }, { value: 2, label: '用户' }, { value: 1, label: '管理员' }]
         };
     },
     created() {
@@ -174,7 +174,7 @@ export default {
             this.data = {};
             this.userAvatar = '';
             this.userPwd = '';
-            this.dialogCategoryOperaion = false;
+            this.dialogUserOperaion = false;
             this.dialogStatusOperation = false;
             this.isOperation = false;
         },
@@ -185,7 +185,7 @@ export default {
                 userRole: this.isAdmin ? 1 : 2,
                 isWord: this.data.isWord
             }
-            this.$axios.put(`/category/backUpdate`, userUpdateDto).then(res => {
+            this.$axios.put(`/user/backUpdate`, userUpdateDto).then(res => {
                 if (res.data.code === 200) {
                     this.$notify({
                         duration: 1500,
@@ -200,9 +200,9 @@ export default {
                 console.log("修改状态异常：" + error);
             })
         },
-        // 修改商品类别状态
+        // 修改用户状态
         handleStatus(data) {
-            // 设置商品类别角色
+            // 设置用户角色
             this.isAdmin = data.userRole === 1;
             this.dialogStatusOperation = true;
             this.data = data;
@@ -215,26 +215,26 @@ export default {
                 message: res.code === 200 ? '上传成功' : '上传失败',
                 type: res.code === 200 ? 'success' : 'error'
             });
-            // 上传成功则更新商品类别头像
+            // 上传成功则更新用户头像
             if (res.code === 200) {
                 this.userAvatar = res.data;
             }
         },
         // 批量删除数据
         async batchDelete() {
-            if (!this.delectedRows.length) {
+            if (!this.selectedRows.length) {
                 this.$message(`未选中任何数据`);
                 return;
             }
             const confirmed = await this.$swalConfirm({
-                title: '删除商品类别数据',
+                title: '删除用户数据',
                 text: `删除后不可恢复，是否继续？`,
                 icon: 'warning',
             });
             if (confirmed) {
                 try {
-                    let ids = this.delectedRows.map(entity => entity.id);
-                    const response = await this.$axios.post(`/category/batchDelete`, ids);
+                    let ids = this.selectedRows.map(entity => entity.id);
+                    const response = await this.$axios.post(`/user/batchDelete`, ids);
                     if (response.data.code === 200) {
                         this.$notify({
                             duration: 1000,
@@ -246,8 +246,8 @@ export default {
                         return;
                     }
                 } catch (error) {
-                    this.$message.error("商品类别信息删除异常：", error);
-                    console.error(`商品类别信息删除异常：`, error);
+                    this.$message.error("用户信息删除异常：", error);
+                    console.error(`用户信息删除异常：`, error);
                 }
             }
         },
@@ -261,7 +261,7 @@ export default {
             }
             this.data.userAvatar = this.userAvatar;
             try {
-                const response = await this.$axios.put('/category/backUpdate', this.data);
+                const response = await this.$axios.put('/user/backUpdate', this.data);
                 if (response.data.code === 200) {
                     this.$notify({
                         duration: 1000,
@@ -286,7 +286,7 @@ export default {
             }
             this.data.userAvatar = this.userAvatar;
             try {
-                const response = await this.$axios.post('/category/insert', this.data);
+                const response = await this.$axios.post('/user/insert', this.data);
                 if (response.data.code === 200) {
                     this.$notify({
                         duration: 1000,
@@ -326,19 +326,19 @@ export default {
                     key: this.filterText,
                     startTime: startTime,
                     endTime: endTime,
-                    ...this.categoryQueryDto
+                    ...this.userQueryDto
                 };
-                const response = await this.$axios.post('/category/query', params);
+                const response = await this.$axios.post('/user/query', params);
                 const { data } = response;
                 this.tableData = data.data;
                 this.totalItems = data.total;
             } catch (error) {
-                this.$message.error("查询商品类别信息异常:", error);
-                console.error('查询商品类别信息异常:', error);
+                this.$message.error("查询用户信息异常:", error);
+                console.error('查询用户信息异常:', error);
             }
         },
         add() {
-            this.dialogCategoryOperaion = true;
+            this.dialogUserOperaion = true;
         },
         handleFilter() {
             this.currentPage = 1;
@@ -358,14 +358,14 @@ export default {
             this.fetchFreshData();
         },
         handleEdit(row) {
-            this.dialogCategoryOperaion = true;
+            this.dialogUserOperaion = true;
             this.isOperation = true;
             row.userPwd = null;
             this.userAvatar = row.userAvatar;
             this.data = { ...row }
         },
         handleDelete(row) {
-            this.delectedRows.push(row);
+            this.selectedRows.push(row);
             this.batchDelete();
         }
     },
