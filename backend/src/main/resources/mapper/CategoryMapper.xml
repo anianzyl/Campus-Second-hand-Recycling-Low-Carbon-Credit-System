@@ -27,7 +27,7 @@
         </foreach>
     </delete>
 
-    <!--分页查询用户信息-->
+    <!--分页查询信息-->
     <select id="query" resultMap="BaseResultMap">
 
         SELECT c.*

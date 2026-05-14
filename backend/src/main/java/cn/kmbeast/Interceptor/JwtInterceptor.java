@@ -42,8 +42,8 @@ public class JwtInterceptor implements HandlerInterceptor {
                 requestURI.contains("/error") ||
                 requestURI.contains("/file") ||
                 requestURI.contains("/query") && !requestURI.contains("/queryUser")
-                        && !requestURI.contains("/queryOrdersList")
-                        && !requestURI.contains("/queryProductInfo") ||
+                && !requestURI.contains("/queryOrdersList")
+                && !requestURI.contains("/queryProductInfo") ||
                 requestURI.contains("/register")) {
             return true;
         }

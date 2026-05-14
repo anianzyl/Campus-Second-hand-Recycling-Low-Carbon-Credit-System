@@ -3,25 +3,25 @@
 <mapper namespace="cn.kmbeast.mapper.UserMapper">
     <insert id="insert" parameterType="cn.kmbeast.pojo.entity.User">
         INSERT INTO user (user_account,
-        user_name,
-        user_pwd,
-        user_avatar,
-        user_email,
-        user_role,
-        is_login,
-        is_word,
-        last_login_time,
-        create_time)
+                          user_name,
+                          user_pwd,
+                          user_avatar,
+                          user_email,
+                          user_role,
+                          is_login,
+                          is_word,
+                          last_login_time,
+                          create_time)
         VALUES (#{userAccount},
-        #{userName},
-        #{userPwd},
-        #{userAvatar},
-        #{userEmail},
-        #{userRole},
-        #{isLogin},
-        #{isWord},
-        #{lastLoginTime},
-        #{createTime})
+                #{userName},
+                #{userPwd},
+                #{userAvatar},
+                #{userEmail},
+                #{userRole},
+                #{isLogin},
+                #{isWord},
+                #{lastLoginTime},
+                #{createTime})
     </insert>
     <update id="update" parameterType="cn.kmbeast.pojo.entity.User">
         UPDATE user

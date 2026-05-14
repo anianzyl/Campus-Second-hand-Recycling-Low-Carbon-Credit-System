@@ -17,9 +17,9 @@
     <select id="query" resultMap="BaseResultMap">
 
         SELECT i.*,
-        u.user_name,
-        u.user_account,
-        p.name AS product_title
+               u.user_name,
+               u.user_account,
+               p.name AS product_title
         FROM interaction i
         LEFT JOIN user u ON u.id = i.user_id
         LEFT JOIN product p ON p.id = i.product_id
