@@ -2,88 +2,49 @@ SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ============= 用户表 (user) =============
-INSERT INTO `user` (`id`, `user_account`, `user_name`, `user_pwd`, `user_avatar`, `user_email`, `user_role`, `is_login`, `is_word`, `last_login_time`, `create_time`) VALUES
-          (1, 'admin', '管理员', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'admin@campus.com', 1, 0, 0, '2025-10-01 08:00:00', '2025-08-01 00:00:00'),
-          (2, 'zhangsan', '张三', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'zhangsan@campus.com', 2, 0, 0, '2025-09-28 14:30:00', '2025-08-02 10:00:00'),
-          (3, 'lisi', '李四', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'lisi@campus.com', 2, 0, 0, '2025-09-30 16:45:00', '2025-08-05 09:20:00'),
-          (4, 'wangwu', '王五', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'wangwu@campus.com', 2, 0, 0, '2025-09-29 11:10:00', '2025-08-07 14:15:00'),
-          (5, 'zhaoliu', '赵六', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'zhaoliu@campus.com', 2, 0, 0, '2025-10-02 09:00:00', '2025-08-10 08:30:00'),
-          (6, 'sunqi', '孙七', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'sunqi@campus.com', 2, 0, 0, '2025-09-25 18:20:00', '2025-08-12 12:00:00'),
-          (7, 'zhouba', '周八', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'zhouba@campus.com', 2, 0, 0, '2025-10-01 20:15:00', '2025-08-15 17:40:00'),
-          (8, 'wujiu', '吴九', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'wujiu@campus.com', 2, 0, 0, '2025-09-27 07:55:00', '2025-08-18 11:25:00'),
-          (9, 'zhengshi', '郑十', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'zhengshi@campus.com', 2, 0, 0, '2025-09-30 22:10:00', '2025-08-20 16:00:00'),
-          (10, 'xiaoming', '小明', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'xiaoming@campus.com', 2, 0, 0, '2025-09-28 13:40:00', '2025-08-22 10:30:00'),
-          (11, 'xiaohong', '小红', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'xiaohong@campus.com', 2, 0, 0, '2025-10-02 15:00:00', '2025-08-25 09:10:00'),
-          (12, 'xiaohua', '小华', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'xiaohua@campus.com', 2, 0, 0, '2025-09-26 12:30:00', '2025-08-28 14:50:00'),
-          (13, 'xiaoli', '小丽', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'xiaoli@campus.com', 2, 0, 0, '2025-10-03 08:45:00', '2025-09-01 11:00:00'),
-          (14, 'xiaogang', '小刚', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'xiaogang@campus.com', 2, 0, 0, '2025-09-29 19:25:00', '2025-09-03 16:30:00'),
-          (15, 'xiaomei', '小美', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'xiaomei@campus.com', 2, 0, 0, '2025-10-04 10:20:00', '2025-09-05 13:15:00'),
-          (16, 'xiaoqiang', '小强', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'xiaoqiang@campus.com', 2, 0, 0, '2025-10-01 16:50:00', '2025-09-08 15:40:00');
+INSERT INTO `user` VALUES (1, 'admin', '管理员', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=49bf8cepic_6.jpg', '1343243@qq.com', 1, 0, 0, '2024-12-22 12:14:16', '2024-12-04 12:53:05');
+INSERT INTO `user` VALUES (2, 'zhangsan', '张三', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=0e61962pic_8.jpg', '12311323@qq.com', 2, 0, 0, '2024-12-22 12:21:31', '2024-08-16 16:12:12');
+INSERT INTO `user` VALUES (7, 'lisi', '李四', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '12434@qq.com', 1, 1, 1, NULL, '2024-10-19 06:39:12');
+INSERT INTO `user` VALUES (8, 'wangwu', '王五', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=45aebe6pic_7.jpg', '12345@qq.com', 2, 0, 0, NULL, '2024-12-05 15:44:45');
+INSERT INTO `user` VALUES (9, 'zhaoliu', '赵六', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '1234@qq.com', 2, 0, 1, NULL, '2024-12-05 15:45:12');
+INSERT INTO `user` VALUES (10, 'sunqi', '孙七', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '4532432@qq.com', 2, 0, 0, NULL, '2024-12-05 15:46:46');
+INSERT INTO `user` VALUES (11, 'zhouba', '周八', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '123432@qq.com', 2, 0, 0, NULL, '2024-12-05 15:47:08');
+INSERT INTO `user` VALUES (12, 'hututu', '胡图图', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=e042009pic_8.jpg', '4343@qq.com', 2, 0, 0, NULL, '2024-12-05 15:47:26');
+INSERT INTO `user` VALUES (13, 'wujiu', '吴九', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '43423@qq.com', 2, 0, 0, NULL, '2024-12-05 15:51:13');
+INSERT INTO `user` VALUES (14, 'xiaoming', '小明', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '124343@qq.com', 2, 0, 0, NULL, '2024-12-05 15:54:50');
+INSERT INTO `user` VALUES (15, 'lihua', '李华', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=b3e3d35pic_7.jpg', '654456@qq.com', 2, 1, 0, NULL, '2024-12-05 15:55:12');
 
 -- ============= 分类表 (category) =============
-INSERT INTO `category` (`id`, `name`, `is_use`) VALUES
-            (1, '电子产品', 1),
-            (2, '图书教材', 1),
-            (3, '生活电器', 1),
-            (4, '服饰鞋包', 1),
-            (5, '运动户外', 1),
-            (6, '乐器设备', 1),
-            (7, '数码配件', 1),
-            (8, '文具用品', 1),
-            (9, '美妆护肤', 1),
-            (10, '食品饮料', 1),
-            (11, '虚拟物品', 1),
-            (12, '交通工具', 1),
-            (13, '家具家居', 1),
-            (14, '宠物用品', 1),
-            (15, '摄影器材', 1),
-            (16, '游戏装备', 1),
-            (17, '收藏品', 1),
-            (18, '手工制品', 1),
-            (19, '乐器配件', 1),
-            (20, '其他', 1);
+INSERT INTO `category` VALUES (1, '手机', 1);
+INSERT INTO `category` VALUES (2, '衣服', 1);
+INSERT INTO `category` VALUES (5, '书籍', 0);
+INSERT INTO `category` VALUES (6, '手表', 1);
+INSERT INTO `category` VALUES (7, '零食', 1);
 
 -- ============= 商品表 (product) =============
-INSERT INTO `product` (`id`, `name`, `detail`, `cover_list`, `old_level`, `category_id`, `user_id`, `inventory`, `price`, `is_bargain`, `create_time`) VALUES
-           (1, 'iPhone 12 128G', '自用一年，边框轻微划痕，电池健康87%，无维修，带原装充电器', '["cover1_1.jpg","cover1_2.jpg"]', 7, 1, 2, 1, 2500.00, 0, '2025-09-10 10:30:00'),
-           (2, '高等数学 第七版', '考研用过，有笔记，八成新，上下册一起出', '["cover2_1.jpg"]', 8, 2, 3, 2, 25.00, 1, '2025-09-05 14:20:00'),
-           (3, '美的台灯 LED', '宿舍用，触控调光，usb充电，白色，几乎全新', '["cover3_1.jpg","cover3_2.jpg"]', 9, 3, 4, 1, 40.00, 1, '2025-09-12 09:15:00'),
-           (4, '耐克运动鞋 42码', '正品，仅穿过两次，鞋底无磨损，原盒在', '["cover4_1.jpg"]', 9, 4, 5, 1, 180.00, 0, '2025-09-08 16:40:00'),
-           (5, '瑜伽垫 加厚10mm', '紫色，买来没怎么用，适合宿舍锻炼', '["cover5_1.jpg"]', 9, 5, 6, 1, 30.00, 1, '2025-09-14 11:10:00'),
-           (6, '卡西欧电子琴 CT-X700', '61键，带琴架和踏板，适合入门，有一点磕碰', '["cover6_1.jpg","cover6_2.jpg"]', 6, 6, 7, 1, 600.00, 0, '2025-09-07 20:00:00'),
-           (7, 'AirPods Pro 一代', '降噪功能正常，耳机仓有轻微划痕，送替换耳塞', '["cover7_1.jpg"]', 7, 7, 8, 1, 500.00, 1, '2025-09-11 13:30:00'),
-           (8, '百乐中性笔套装', '12支装，黑蓝红各4支，全新未拆', '["cover8_1.jpg"]', 10, 8, 9, 5, 18.00, 0, '2025-09-09 08:50:00'),
-           (9, 'MAC口红 chili色号', '仅试色，不适合自己，保真', '["cover9_1.jpg"]', 9, 9, 10, 1, 80.00, 1, '2025-09-13 15:15:00'),
-           (10, '三只松鼠坚果礼盒', '未开封，朋友送的，吃不完转让', '["cover10_1.jpg"]', 10, 10, 11, 1, 60.00, 1, '2025-09-06 17:00:00'),
-           (11, 'B站大会员季卡兑换码', '虚拟发货，拍了秒发', '["cover11_1.jpg"]', 10, 11, 12, 3, 45.00, 0, '2025-09-15 12:25:00'),
-           (12, '二手电动车 雅迪', '电池可跑30公里，有发票，刹车灵敏', '["cover12_1.jpg","cover12_2.jpg"]', 5, 12, 13, 1, 800.00, 0, '2025-09-04 10:10:00'),
-           (13, '懒人沙发豆袋', '灰色，可拆洗，坐着很舒服，毕业带不走', '["cover13_1.jpg"]', 6, 13, 14, 1, 100.00, 1, '2025-09-02 19:30:00'),
-           (14, '猫砂盆 半封闭', '用了两个月，已清洗消毒，送小铲子', '["cover14_1.jpg"]', 7, 14, 15, 1, 35.00, 1, '2025-09-03 14:45:00'),
-           (15, '佳能镜头 50mm f/1.8', '小痰盂三代，无霉无灰，前后盖都在', '["cover15_1.jpg"]', 8, 15, 2, 1, 500.00, 0, '2025-09-16 09:00:00'),
-           (16, 'PS4游戏碟 战神4', '通关一次，光盘无痕，箱说全', '["cover16_1.jpg"]', 9, 16, 3, 2, 100.00, 1, '2025-09-17 16:20:00'),
-           (17, '纪念币 冬奥会', '带证书，未流通，完美品相', '["cover17_1.jpg"]', 10, 17, 4, 1, 300.00, 0, '2025-09-18 11:40:00'),
-           (18, '手工编织挂毯', '自己做的，尺寸50*80cm，波西米亚风', '["cover18_1.jpg"]', 10, 18, 5, 1, 45.00, 1, '2025-09-19 14:10:00'),
-           (19, '机械键盘 cherry轴', 'IKBC C87，红轴，轻微打油，功能全好', '["cover19_1.jpg"]', 7, 7, 6, 1, 150.00, 0, '2025-09-20 10:55:00'),
-           (20, '宿舍小冰箱 20L', '冷暖两用，个人使用，很干净', '["cover20_1.jpg","cover20_2.jpg"]', 7, 3, 7, 1, 200.00, 1, '2025-09-21 08:30:00');
+INSERT INTO `product` VALUES (1, 'iPhone 12 128G', '<p>保真</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=9fd561f3.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=0be94df5.png', 7, 1, 12, 0, 1699.00, 1, '2024-12-10 19:47:27');
+INSERT INTO `product` VALUES (2, '苹果', '<p>零食</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=5eb81a84.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=15d04683.png', 10, 1, 2, 7, 1999.90, 1, '2024-12-14 16:12:47');
+INSERT INTO `product` VALUES (3, '咖啡糖', '<p>零食</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=67b7ba410.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=0c3e5d16.png', 9, 7, 2, 0, 19.90, 1, '2024-12-14 17:54:36');
+INSERT INTO `product` VALUES (4, '三只松鼠坚果礼盒', '<p>零食</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=4b0513a11.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=b3554a24.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=4d108755.png', 9, 7, 2, 0, 129.90, 1, '2024-12-14 17:54:43');
+INSERT INTO `product` VALUES (5, '测试1', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.00, 1, '2024-12-18 17:33:16');
+INSERT INTO `product` VALUES (6, '测试1', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.10, 1, '2024-12-18 17:33:22');
+INSERT INTO `product` VALUES (7, '测试4', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.00, 1, '2024-12-19 17:33:29');
+INSERT INTO `product` VALUES (8, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.00, 1, '2024-12-21 17:33:32');
+INSERT INTO `product` VALUES (9, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.10, 1, '2024-12-19 17:33:34');
+INSERT INTO `product` VALUES (10, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-21 17:33:36');
+INSERT INTO `product` VALUES (11, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-01 17:33:37');
+INSERT INTO `product` VALUES (12, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-21 17:33:37');
+INSERT INTO `product` VALUES (13, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-20 17:33:38');
+INSERT INTO `product` VALUES (14, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 7, 2, 0, 23.10, 1, '2024-12-21 17:33:38');
+INSERT INTO `product` VALUES (15, '自热火锅', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=ab1d46f8.png', 9, 7, 2, 1, 23.10, 1, '2024-12-21 17:33:38');
 
 -- ============= 订单表 (orders) =============
-INSERT INTO `orders` (`id`, `code`, `detail`, `user_id`, `product_id`, `buy_price`, `buy_number`, `trade_status`, `trade_time`, `refund_status`, `refund_time`, `is_refund_confirm`, `create_time`) VALUES
-            (1, '20250925001', '请尽快发货', 8, 1, 2500.00, 1, 1, '2025-09-26 15:00:00', 0, NULL, 0, '2025-09-25 10:00:00'),
-            (2, '20250926002', '', 9, 3, 35.00, 1, 1, '2025-09-27 12:30:00', 0, NULL, 0, '2025-09-26 09:20:00'),
-            (3, '20250927003', '能便宜点吗', 10, 7, 480.00, 1, 1, '2025-09-28 18:10:00', 0, NULL, 0, '2025-09-27 14:15:00'),
-            (4, '20250928004', '', 11, 9, 80.00, 1, 1, '2025-09-29 20:45:00', 0, NULL, 0, '2025-09-28 11:30:00'),
-            (5, '20250929005', '麻烦拍细图', 12, 13, 90.00, 1, 1, '2025-09-30 16:20:00', 0, NULL, 0, '2025-09-29 08:40:00'),
-            (6, '20250930006', '已付款', 13, 15, 500.00, 1, 1, '2025-10-01 11:00:00', 0, NULL, 0, '2025-09-30 12:00:00'),
-            (7, '20251001007', NULL, 14, 18, 45.00, 1, 1, '2025-10-02 14:15:00', 0, NULL, 0, '2025-10-01 10:00:00'),
-            (8, '20251002008', '', 15, 20, 200.00, 1, 1, '2025-10-03 09:50:00', 0, NULL, 0, '2025-10-02 15:30:00'),
-            (9, '20251003009', '面交', 2, 5, 30.00, 1, 1, '2025-10-04 13:00:00', 0, NULL, 0, '2025-10-03 08:10:00'),
-            (10, '20251004010', '', 3, 10, 55.00, 1, 1, '2025-10-05 16:40:00', 1, '2025-10-06 10:00:00', 1, '2025-10-04 12:25:00'),
-            (11, '20251005011', '急出', 4, 19, 150.00, 1, 1, '2025-10-06 10:30:00', 0, NULL, 0, '2025-10-05 09:20:00'),
-            (12, '20251006012', NULL, 5, 4, 180.00, 1, 0, NULL, 0, NULL, 0, '2025-10-06 14:00:00'),
-            (13, '20251007013', '坐标西区', 6, 6, 580.00, 1, 0, NULL, 0, NULL, 0, '2025-10-07 11:15:00'),
-            (14, '20251008014', '', 7, 2, 25.00, 1, 1, '2025-10-09 17:00:00', 0, NULL, 0, '2025-10-08 08:00:00'),
-            (15, '20251009015', '包装完好', 8, 16, 100.00, 1, 1, '2025-10-10 12:30:00', 0, NULL, 0, '2025-10-09 15:40:00'),
-            (16, '20251010016', '', 9, 8, 18.00, 2, 1, '2025-10-11 10:10:00', 0, NULL, 0, '2025-10-10 13:50:00');
+INSERT INTO `orders` VALUES (3, '1734581788694', '请尽快发货', 2, 6, 19.90, 3, 1, '2024-12-19 17:06:04', 1, '2024-12-19 19:22:24', 1, '2024-12-12 12:16:29');
+INSERT INTO `orders` VALUES (5, '1734604723101', '到时候找你要', 8, 7, 129.90, 2, 1, '2024-12-19 18:39:32', 1, '2024-12-19 19:24:26', 1, '2024-12-19 18:38:43');
+INSERT INTO `orders` VALUES (6, '1734679482904', '暂时你这里留着，周日取', 2, 7, 129.90, 2, 1, '2024-12-20 15:24:46', NULL, NULL, NULL, '2024-12-20 15:24:43');
+INSERT INTO `orders` VALUES (7, '1734679840022', '面交', 2, 4, 1999.90, 2, 0, NULL, NULL, NULL, NULL, '2024-12-20 15:30:40');
+INSERT INTO `orders` VALUES (8, '1734763790037', '包装完好', 2, 7, 129.90, 1, 1, '2024-12-21 14:49:53', 1, NULL, NULL, '2024-12-21 14:49:50');
+INSERT INTO `orders` VALUES (9, '1734837099335', '', 2, 18, 23.10, 3, 1, '2024-12-22 12:27:35', 1, NULL, NULL, '2024-12-22 11:11:39');
 
 -- ============= 评论表 (evaluations) =============
 INSERT INTO `evaluations` (`id`, `parent_id`, `commenter_id`, `replier_id`, `content_type`, `content_id`, `content`, `upvote_list`, `create_time`) VALUES
