@@ -22,21 +22,21 @@ INSERT INTO `category` VALUES (6, '手表', 1);
 INSERT INTO `category` VALUES (7, '零食', 1);
 
 -- ============= 商品表 (product) =============
-INSERT INTO `product` VALUES (1, 'iPhone 12 128G', '<p>保真</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=9fd561f3.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=0be94df5.png', 7, 1, 12, 0, 1699.00, 1, '2024-12-10 19:47:27');
-INSERT INTO `product` VALUES (2, '苹果', '<p>零食</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=5eb81a84.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=15d04683.png', 10, 1, 2, 7, 1999.90, 1, '2024-12-14 16:12:47');
-INSERT INTO `product` VALUES (3, '咖啡糖', '<p>零食</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=67b7ba410.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=0c3e5d16.png', 9, 7, 2, 0, 19.90, 1, '2024-12-14 17:54:36');
-INSERT INTO `product` VALUES (4, '三只松鼠坚果礼盒', '<p>零食</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=4b0513a11.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=b3554a24.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=4d108755.png', 9, 7, 2, 0, 129.90, 1, '2024-12-14 17:54:43');
-INSERT INTO `product` VALUES (5, '测试1', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.00, 1, '2024-12-18 17:33:16');
-INSERT INTO `product` VALUES (6, '测试1', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.10, 1, '2024-12-18 17:33:22');
-INSERT INTO `product` VALUES (7, '测试4', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.00, 1, '2024-12-19 17:33:29');
-INSERT INTO `product` VALUES (8, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.00, 1, '2024-12-21 17:33:32');
-INSERT INTO `product` VALUES (9, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.10, 1, '2024-12-19 17:33:34');
-INSERT INTO `product` VALUES (10, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-21 17:33:36');
-INSERT INTO `product` VALUES (11, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-01 17:33:37');
-INSERT INTO `product` VALUES (12, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-21 17:33:37');
-INSERT INTO `product` VALUES (13, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-20 17:33:38');
-INSERT INTO `product` VALUES (14, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 7, 2, 0, 23.10, 1, '2024-12-21 17:33:38');
-INSERT INTO `product` VALUES (15, '自热火锅', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=ab1d46f8.png', 9, 7, 2, 1, 23.10, 1, '2024-12-21 17:33:38');
+INSERT INTO `product` VALUES (1, 'vivoX100', '<p>保真</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=9fd561f3.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=0be94df5.png', 7, 1, 12, 0, 1699.00, 1, '2024-12-10 19:47:27');
+INSERT INTO `product` VALUES (4, '苹果11', '<p>零食</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=5eb81a84.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=15d04683.png', 10, 1, 2, 7, 1999.90, 1, '2024-12-14 16:12:47');
+INSERT INTO `product` VALUES (6, '咖啡糖', '<p>零食</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=67b7ba410.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=0c3e5d16.png', 9, 7, 2, 0, 19.90, 1, '2024-12-14 17:54:36');
+INSERT INTO `product` VALUES (7, '三只松鼠', '<p>零食</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=4b0513a11.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=b3554a24.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=4d108755.png', 9, 7, 2, 0, 129.90, 1, '2024-12-14 17:54:43');
+INSERT INTO `product` VALUES (8, '测试1', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.00, 1, '2024-12-18 17:33:16');
+INSERT INTO `product` VALUES (9, '测试1', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.10, 1, '2024-12-18 17:33:22');
+INSERT INTO `product` VALUES (11, '测试4', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.00, 1, '2024-12-19 17:33:29');
+INSERT INTO `product` VALUES (12, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.00, 1, '2024-12-21 17:33:32');
+INSERT INTO `product` VALUES (13, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 8, 6, 2, NULL, 23.10, 1, '2024-12-19 17:33:34');
+INSERT INTO `product` VALUES (14, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-21 17:33:36');
+INSERT INTO `product` VALUES (15, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-01 17:33:37');
+INSERT INTO `product` VALUES (16, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-21 17:33:37');
+INSERT INTO `product` VALUES (17, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-20 17:33:38');
+INSERT INTO `product` VALUES (18, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 7, 2, 0, 23.10, 1, '2024-12-21 17:33:38');
+INSERT INTO `product` VALUES (20, '自热火锅', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=ab1d46f8.png', 9, 7, 2, 1, 23.10, 1, '2024-12-21 17:33:38');
 
 -- ============= 订单表 (orders) =============
 INSERT INTO `orders` VALUES (3, '1734581788694', '请尽快发货', 2, 6, 19.90, 3, 1, '2024-12-19 17:06:04', 1, '2024-12-19 19:22:24', 1, '2024-12-12 12:16:29');
@@ -67,26 +67,12 @@ INSERT INTO `evaluations` (`id`, `parent_id`, `commenter_id`, `replier_id`, `con
 
 -- ============= 互动表 (interaction) =============
 INSERT INTO `interaction` (`id`, `user_id`, `product_id`, `type`, `create_time`) VALUES
-             (1, 8, 1, 2, '2025-09-25 09:00:00'),
-             (2, 8, 1, 3, '2025-09-25 09:30:00'),
-             (3, 8, 1, 1, '2025-09-25 09:45:00'),
-             (4, 9, 3, 2, '2025-09-26 08:20:00'),
-             (5, 9, 3, 1, '2025-09-26 08:50:00'),
-             (6, 10, 7, 2, '2025-09-27 12:00:00'),
-             (7, 10, 7, 3, '2025-09-27 12:10:00'),
-             (8, 11, 9, 2, '2025-09-28 10:15:00'),
-             (9, 11, 9, 1, '2025-09-28 10:30:00'),
-             (10, 12, 13, 2, '2025-09-29 07:40:00'),
-             (11, 12, 13, 3, '2025-09-29 07:50:00'),
-             (12, 13, 15, 2, '2025-09-30 11:30:00'),
-             (13, 13, 15, 1, '2025-09-30 11:50:00'),
-             (14, 14, 18, 2, '2025-10-01 10:00:00'),
-             (15, 15, 20, 2, '2025-10-02 14:10:00'),
-             (16, 15, 20, 3, '2025-10-02 14:25:00'),
-             (17, 2, 5, 2, '2025-10-03 08:00:00'),
-             (18, 3, 10, 2, '2025-10-04 11:40:00'),
-             (19, 4, 19, 2, '2025-10-05 09:10:00'),
-             (20, 5, 4, 2, '2025-10-06 13:45:00');
+INSERT INTO `interaction` VALUES (5, 2, 4, 1, '2024-12-15 18:15:41');
+INSERT INTO `interaction` VALUES (18, 2, 6, 1, '2024-12-20 14:28:01');
+INSERT INTO `interaction` VALUES (19, 1, 20, 2, '2024-12-21 20:17:54');
+INSERT INTO `interaction` VALUES (22, 1, 16, 2, '2024-12-22 10:54:52');
+INSERT INTO `interaction` VALUES (23, 1, 19, 2, '2024-12-22 10:55:45');
+INSERT INTO `interaction` VALUES (25, 2, 18, 1, '2024-12-22 12:25:09');
 
 -- ============= 消息表 (message) =============
 INSERT INTO `message` (`id`, `user_id`, `content`, `is_read`, `create_time`) VALUES
