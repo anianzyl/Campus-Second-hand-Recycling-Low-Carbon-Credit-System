@@ -44,6 +44,7 @@ public class EvaluationsServiceImpl implements EvaluationsService {
             return ApiResult.error("账户已被禁言");
         }
         // TODO 需要发通知！
+        //应该通知商品发布者和被回复用户
         evaluations.setCreateTime(LocalDateTime.now());
         evaluationsMapper.save(evaluations);
         return ApiResult.success("评论成功");
@@ -151,6 +152,7 @@ public class EvaluationsServiceImpl implements EvaluationsService {
     @Override
     public Result<Void> update(Evaluations evaluations) {
         // TODO 点赞需要做通知
+        //通知评论作者
         evaluationsMapper.update(evaluations);
         return ApiResult.success();
     }
