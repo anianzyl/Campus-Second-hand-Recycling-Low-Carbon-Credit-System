@@ -47,23 +47,59 @@ INSERT INTO `orders` VALUES (8, '1734763790037', '包装完好', 2, 7, 129.90, 1
 INSERT INTO `orders` VALUES (9, '1734837099335', '', 2, 18, 23.10, 3, 1, '2024-12-22 12:27:35', 1, NULL, NULL, '2024-12-22 11:11:39');
 
 -- ============= 评论表 (evaluations) =============
-INSERT INTO `evaluations` (`id`, `parent_id`, `commenter_id`, `replier_id`, `content_type`, `content_id`, `content`, `upvote_list`, `create_time`) VALUES
-            (1, NULL, 8, NULL, 'product', 1, '手机成色很好，和描述一致', '3,5', '2025-09-27 16:00:00'),
-            (2, 1, 2, 8, 'product', 1, '谢谢，用着很流畅吧？', NULL, '2025-09-27 18:00:00'),
-            (3, 1, 8, 2, 'product', 1, '是的，电池也不错', NULL, '2025-09-27 19:30:00'),
-            (4, NULL, 9, NULL, 'product', 3, '台灯很新，触控灵敏', '6', '2025-09-28 20:00:00'),
-            (5, NULL, 10, NULL, 'product', 7, '耳机降噪真的很强', '11,12', '2025-09-29 14:20:00'),
-            (6, 5, 11, 10, 'product', 7, '有没有杂音？', NULL, '2025-09-29 15:00:00'),
-            (7, 5, 10, 11, 'product', 7, '没杂音，非常安静', NULL, '2025-09-29 16:10:00'),
-            (8, NULL, 11, NULL, 'product', 9, '口红颜色很正，是正品', '13', '2025-09-30 09:40:00'),
-            (9, NULL, 12, NULL, 'product', 13, '沙发很舒服，卖家态度好', NULL, '2025-10-01 11:30:00'),
-            (10, 9, 14, 12, 'product', 13, '谢谢支持！', NULL, '2025-10-01 12:00:00'),
-            (11, NULL, 13, NULL, 'product', 15, '镜头对焦迅速，值得入手', '2', '2025-10-02 15:00:00'),
-            (12, NULL, 14, NULL, 'product', 18, '手工精致，超出预期', '5,6', '2025-10-03 10:20:00'),
-            (13, NULL, 15, NULL, 'product', 20, '冰箱制冷效果不错，声音小', '7', '2025-10-04 14:30:00'),
-            (14, 13, 7, 15, 'product', 20, '耗电大吗？', NULL, '2025-10-04 16:00:00'),
-            (15, 13, 15, 7, 'product', 20, '不大，宿舍用刚好', NULL, '2025-10-04 17:15:00'),
-            (16, NULL, 2, NULL, 'product', 2, '书保存得不错，重点清晰', '8', '2025-09-30 08:00:00');
+INSERT INTO `evaluations` VALUES (4, NULL, 8, NULL, 'PRODUCT', 10, '我也遇到过这种问题', '1,7,8', '2024-05-23 11:33:01');
+INSERT INTO `evaluations` VALUES (7, 4, 3, NULL, 'PRODUCT', 10, '大侠风范', '1,7,8,3', '2024-06-08 17:06:19');
+INSERT INTO `evaluations` VALUES (8, 1, 3, 3, 'PRODUCT', 10, '一派胡言', '1,7,8', '2024-06-08 17:06:19');
+INSERT INTO `evaluations` VALUES (13, 1, 3, 7, 'PRODUCT', 10, '这么神奇？', '1,8', '2024-06-08 17:06:19');
+INSERT INTO `evaluations` VALUES (14, NULL, 8, 3, 'PRODUCT', 10, '大哥，我服了！', '1,8', '2024-06-08 17:06:19');
+INSERT INTO `evaluations` VALUES (23, NULL, 3, NULL, 'PRODUCT', 10, '我的评论', '3', '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (27, 23, 3, 3, 'PRODUCT', 10, '什么事情', '3', '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (29, 14, 3, NULL, 'PRODUCT', 10, '先生。', '3', '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (44, 40, 3, NULL, 'PRODUCT', 19, '回复', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (45, 40, 3, 3, 'PRODUCT', 19, '回复', '3', '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (47, 40, 3, 3, 'PRODUCT', 19, '测试UU', '3', '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (49, NULL, 3, NULL, 'PRODUCT', 10, 'UUUIII', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (50, 49, 3, NULL, 'PRODUCT', 10, '就是', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (51, 4, 3, NULL, 'PRODUCT', 10, '就是', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (52, 4, 3, 8, 'PRODUCT', 10, '哈哈哈', '3', '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (53, 49, 3, 3, 'PRODUCT', 10, '哈哈哈', '8', '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (54, NULL, 3, NULL, 'PRODUCT', 18, '测试', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (55, 54, 3, NULL, 'PRODUCT', 18, 'niaho ', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (58, 57, 3, NULL, 'PRODUCT', 19, '4324234', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (59, 57, 3, 3, 'PRODUCT', 19, '54354354', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (61, NULL, 3, NULL, 'PRODUCT', 19, '432432423', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (83, NULL, 3, NULL, 'PRODUCT', 13, '健康', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (84, NULL, 3, NULL, 'PRODUCT', 13, '丝滑', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (85, NULL, 3, NULL, 'PRODUCT', 14, '哈哈哈哈哈', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (87, NULL, 3, NULL, 'PRODUCT', 16, '？？？', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (88, NULL, 3, NULL, 'PRODUCT', 16, '好好说话', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (89, NULL, 3, NULL, 'PRODUCT', 19, '12121', '3', '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (90, 89, 3, NULL, 'PRODUCT', 19, '同意同意', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (116, NULL, 9, NULL, 'PRODUCT', 3, '这是指标的评论！', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (117, NULL, 9, NULL, 'PRODUCT', 5, '3232', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (118, 117, 9, NULL, 'PRODUCT', 5, '4324324', NULL, '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (119, NULL, 9, NULL, 'PRODUCT', 12, '3342143', '9', '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (120, 119, 9, NULL, 'PRODUCT', 12, '43243243', '9', '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (121, 119, 9, 9, 'PRODUCT', 12, '432423432', '9', '2024-10-24 15:04:19');
+INSERT INTO `evaluations` VALUES (122, NULL, 8, NULL, 'PRODUCT', 7, '好玩吗？？？', '10', '2024-11-13 23:02:43');
+INSERT INTO `evaluations` VALUES (123, 122, 10, NULL, 'PRODUCT', 7, '真的好玩', '8', '2024-11-13 23:03:29');
+INSERT INTO `evaluations` VALUES (124, 122, 8, 10, 'PRODUCT', 7, '什么时候去的？', '8', '2024-11-13 23:03:51');
+INSERT INTO `evaluations` VALUES (127, 125, 3, 8, 'PRODUCT', 4, '真好啊', '8', '2024-11-14 15:46:07');
+INSERT INTO `evaluations` VALUES (131, NULL, 8, NULL, 'PRODUCT', 6, '这里的风景怎么样？', NULL, '2024-11-16 19:02:12');
+INSERT INTO `evaluations` VALUES (132, 131, 3, NULL, 'PRODUCT', 6, '真不错', NULL, '2024-11-16 19:02:46');
+INSERT INTO `evaluations` VALUES (134, 133, 8, NULL, 'PRODUCT', 6, '我去过了', NULL, '2024-11-16 19:03:53');
+INSERT INTO `evaluations` VALUES (135, NULL, 8, NULL, 'PRODUCT', 6, '好不好做？', '8', '2024-11-27 21:53:37');
+INSERT INTO `evaluations` VALUES (136, 135, 8, NULL, 'PRODUCT', 6, '真的不错', NULL, '2024-11-27 21:53:48');
+INSERT INTO `evaluations` VALUES (137, NULL, 8, NULL, 'PRODUCT', 7, '4324324', NULL, '2024-11-28 14:30:04');
+INSERT INTO `evaluations` VALUES (138, NULL, 8, NULL, 'PRODUCT', 5, '4324324', '9', '2024-11-28 16:09:28');
+INSERT INTO `evaluations` VALUES (139, NULL, 8, NULL, 'PRODUCT', 4, '在一个小碗中，将适量生抽、老抽（少量，以免颜色过深）、冰糖、八角、桂皮、香叶和足够覆盖肉块的清水混合均匀，制成调味汁。\n将调味汁倒入砂锅中，确保液体能够没过肉块的一半至三分之二处。', NULL, '2024-11-30 20:49:59');
+INSERT INTO `evaluations` VALUES (140, NULL, 8, NULL, 'PRODUCT', 4, '真好吃', '8', '2024-11-30 20:50:04');
+INSERT INTO `evaluations` VALUES (141, 140, 8, NULL, 'PRODUCT', 4, '攒了赞了', '8', '2024-11-30 20:50:11');
+INSERT INTO `evaluations` VALUES (142, NULL, 8, NULL, 'PRODUCT', 4, '测试评论', NULL, '2024-12-04 18:10:37');
+INSERT INTO `evaluations` VALUES (143, 138, 9, NULL, 'PRODUCT', 5, '复刻了吗？', NULL, '2024-12-04 18:15:50');
+INSERT INTO `evaluations` VALUES (145, NULL, 8, NULL, 'PRODUCT', 11, '到底是谁发明的这个喝法！谢谢啊～ 真的又简单又好喝！以后谁还去奶茶店啊！ 红茶➕白糖炒一炒，炒到焦黄冒泡泡，加一点水煮开，最后倒牛奶就完成啦！（全程小火，糖炒的焦黄冒泡就赶紧加水！', '8', '2024-12-04 18:47:27');
+INSERT INTO `evaluations` VALUES (146, 145, 8, NULL, 'PRODUCT', 11, '！到底是谁发明的这个喝法！谢', '8', '2024-12-04 18:47:37');
+INSERT INTO `evaluations` VALUES (147, NULL, 2, NULL, 'PRODUCT', 1, '4343', NULL, '2024-12-20 14:30:58');
 
 -- ============= 互动表 (interaction) =============
 INSERT INTO `interaction` (`id`, `user_id`, `product_id`, `type`, `create_time`) VALUES
@@ -96,24 +132,24 @@ INSERT INTO `message` (`id`, `user_id`, `content`, `is_read`, `create_time`) VAL
             (18, 12, '您购买的沙发已发货', 1, '2025-09-30 16:21:00');
 
 -- ============= 操作日志表 (operation_log) =============
-INSERT INTO `operation_log` (`id`, `user_id`, `detail`, `create_time`) VALUES
-           (1, 1, '管理员登录后台', '2025-09-20 08:00:00'),
-           (2, 2, '发布商品 iPhone 12', '2025-09-10 10:30:01'),
-           (3, 3, '发布商品 高等数学', '2025-09-05 14:20:01'),
-           (4, 4, '发布商品 美的台灯', '2025-09-12 09:15:01'),
-           (5, 8, '浏览商品 iPhone 12', '2025-09-25 09:00:01'),
-           (6, 8, '收藏商品 iPhone 12', '2025-09-25 09:46:01'),
-           (7, 8, '下单购买 iPhone 12', '2025-09-25 10:00:02'),
-           (8, 9, '浏览商品 台灯', '2025-09-26 08:20:01'),
-           (9, 9, '下单购买台灯', '2025-09-26 09:20:01'),
-           (10, 10, '评论 AirPods Pro', '2025-09-29 14:20:02'),
-           (11, 11, '收藏口红并下单', '2025-09-28 10:30:02'),
-           (12, 13, '购买镜头', '2025-09-30 12:00:01'),
-           (13, 14, '下单购买手工挂毯', '2025-10-01 10:00:02'),
-           (14, 2, '回复用户评论', '2025-09-27 18:00:01'),
-           (15, 8, '确认收货 iPhone 12', '2025-09-27 15:30:01'),
-           (16, 3, '申请退款坚果礼盒', '2025-10-05 16:40:02'),
-           (17, 4, '确认退款', '2025-10-06 10:00:02'),
-           (18, 7, '发货电子琴', '2025-10-07 11:16:02');
+INSERT INTO `operation_log` VALUES (2, 2, '商品申请退款', '2024-12-21 15:02:11');
+INSERT INTO `operation_log` VALUES (3, 2, '商品上架', '2024-12-21 17:33:16');
+INSERT INTO `operation_log` VALUES (4, 2, '商品上架', '2024-12-21 17:33:22');
+INSERT INTO `operation_log` VALUES (5, 2, '商品上架', '2024-12-21 17:33:25');
+INSERT INTO `operation_log` VALUES (6, 2, '商品上架', '2024-12-21 17:33:29');
+INSERT INTO `operation_log` VALUES (7, 2, '商品上架', '2024-12-21 17:33:32');
+INSERT INTO `operation_log` VALUES (8, 2, '商品上架', '2024-12-21 17:33:34');
+INSERT INTO `operation_log` VALUES (9, 2, '商品上架', '2024-12-21 17:33:36');
+INSERT INTO `operation_log` VALUES (10, 2, '商品上架', '2024-12-21 17:33:37');
+INSERT INTO `operation_log` VALUES (11, 2, '商品上架', '2024-12-21 17:33:37');
+INSERT INTO `operation_log` VALUES (12, 2, '商品上架', '2024-12-21 17:33:38');
+INSERT INTO `operation_log` VALUES (13, 2, '商品上架', '2024-12-21 17:33:38');
+INSERT INTO `operation_log` VALUES (14, 2, '商品上架', '2024-12-21 17:33:38');
+INSERT INTO `operation_log` VALUES (15, 2, '商品上架', '2024-12-21 17:33:38');
+INSERT INTO `operation_log` VALUES (16, 2, '商品修改', '2024-12-22 10:47:47');
+INSERT INTO `operation_log` VALUES (17, 2, '商品下单', '2024-12-22 11:11:39');
+INSERT INTO `operation_log` VALUES (18, 2, '商品修改', '2024-12-22 12:25:47');
+INSERT INTO `operation_log` VALUES (19, 2, '商品修改', '2024-12-22 12:26:07');
+INSERT INTO `operation_log` VALUES (20, 2, '商品申请退款', '2024-12-22 12:27:37');
 
 SET FOREIGN_KEY_CHECKS = 1;
