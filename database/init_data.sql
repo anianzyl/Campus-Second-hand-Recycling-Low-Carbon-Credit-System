@@ -37,6 +37,18 @@ INSERT INTO `product` VALUES (16, '测试12', '<p>测试</p>', 'http://localhost
 INSERT INTO `product` VALUES (17, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 6, 2, NULL, 23.10, 1, '2024-12-20 17:33:38');
 INSERT INTO `product` VALUES (18, '测试12', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 10, 7, 2, 0, 23.10, 1, '2024-12-21 17:33:38');
 INSERT INTO `product` VALUES (20, '自热火锅', '<p>测试</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=ab1d46f8.png', 9, 7, 2, 1, 23.10, 1, '2024-12-21 17:33:38');
+INSERT INTO `product` 
+(name, detail, cover_list, old_level, category_id, user_id, inventory, price, is_bargain, create_time) 
+VALUES
+('iPhone 15 Pro', '<p>全新未激活</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=9fd561f3.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=0be94df5.png', 10, 1, 2, 1, 5999.00, 1, DATE_SUB(NOW(), INTERVAL 4 DAY)),
+('iPad Air', '<p>9成新</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=5eb81a84.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=15d04683.png', 8, 1, 2, 2, 3499.00, 0, DATE_SUB(NOW(), INTERVAL 3 DAY)),
+('MacBook Air', '<p>8成新</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=081cc8e6.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=103c0f411.png', 7, 1, 8, 1, 5999.00, 1, DATE_SUB(NOW(), INTERVAL 2 DAY)),
+('AirPods Pro', '<p>全新</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=67b7ba410.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=0c3e5d16.png', 10, 1, 8, 5, 1899.00, 0, DATE_SUB(NOW(), INTERVAL 2 DAY)),
+('Apple Watch', '<p>9成新</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=4b0513a11.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=b3554a24.png', 8, 6, 12, 2, 1999.00, 1, DATE_SUB(NOW(), INTERVAL 1 DAY)),
+('高级手表', '<p>8成新</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=ab1d46f8.png,http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=4d108755.png', 7, 6, 12, 1, 1299.00, 0, DATE_SUB(NOW(), INTERVAL 1 DAY)),
+('运动鞋', '<p>全新</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=49bf8cepic_6.jpg', 10, 2, 14, 3, 599.00, 0, NOW()),
+('冬季羽绒服', '<p>9成新</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=45aebe6pic_7.jpg', 8, 2, 14, 2, 399.00, 1, NOW()),
+('书籍套装', '<p>7成新</p>', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=9dda8db图书1.png', 7, 5, 10, 4, 99.00, 0, NOW());
 
 -- ============= 订单表 (orders) =============
 INSERT INTO `orders` VALUES (3, '1734581788694', '请尽快发货', 2, 6, 19.90, 3, 1, '2024-12-19 17:06:04', 1, '2024-12-19 19:22:24', 1, '2024-12-12 12:16:29');
