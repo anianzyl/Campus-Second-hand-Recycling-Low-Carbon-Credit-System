@@ -4,14 +4,14 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ============= 用户表 (user) =============
 INSERT INTO `user` VALUES (1, 'admin', '管理员', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=49bf8cepic_6.jpg', '1343243@qq.com', 1, 0, 0, '2024-12-22 12:14:16', '2024-12-04 12:53:05');
 INSERT INTO `user` VALUES (2, 'zhangsan', '张三', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=0e61962pic_8.jpg', '12311323@qq.com', 2, 0, 0, '2024-12-22 12:21:31', '2024-08-16 16:12:12');
-INSERT INTO `user` VALUES (7, 'lisi', '李四', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '12434@qq.com', 1, 1, 1, NULL, '2024-10-19 06:39:12');
+INSERT INTO `user` VALUES (7, 'lisi', '李四', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '12434@qq.com', 1, 1, 1, NULL, '2024-10-19 06:39:12');
 INSERT INTO `user` VALUES (8, 'wangwu', '王五', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=45aebe6pic_7.jpg', '12345@qq.com', 2, 0, 0, NULL, '2024-12-05 15:44:45');
-INSERT INTO `user` VALUES (9, 'zhaoliu', '赵六', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '1234@qq.com', 2, 0, 1, NULL, '2024-12-05 15:45:12');
-INSERT INTO `user` VALUES (10, 'sunqi', '孙七', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '4532432@qq.com', 2, 0, 0, NULL, '2024-12-05 15:46:46');
-INSERT INTO `user` VALUES (11, 'zhouba', '周八', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '123432@qq.com', 2, 0, 0, NULL, '2024-12-05 15:47:08');
+INSERT INTO `user` VALUES (9, 'zhaoliu', '赵六', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '1234@qq.com', 2, 0, 1, NULL, '2024-12-05 15:45:12');
+INSERT INTO `user` VALUES (10, 'sunqi', '孙七', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '4532432@qq.com', 2, 0, 0, NULL, '2024-12-05 15:46:46');
+INSERT INTO `user` VALUES (11, 'zhouba', '周八', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '123432@qq.com', 2, 0, 0, NULL, '2024-12-05 15:47:08');
 INSERT INTO `user` VALUES (12, 'hututu', '胡图图', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=e042009pic_8.jpg', '4343@qq.com', 2, 0, 0, NULL, '2024-12-05 15:47:26');
-INSERT INTO `user` VALUES (13, 'wujiu', '吴九', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '43423@qq.com', 2, 0, 0, NULL, '2024-12-05 15:51:13');
-INSERT INTO `user` VALUES (14, 'xiaoming', '小明', '14e1b600b1fd579f47433b88e8d85291', '/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '124343@qq.com', 2, 0, 0, NULL, '2024-12-05 15:54:50');
+INSERT INTO `user` VALUES (13, 'wujiu', '吴九', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '43423@qq.com', 2, 0, 0, NULL, '2024-12-05 15:51:13');
+INSERT INTO `user` VALUES (14, 'xiaoming', '小明', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=1288932pic_8.jpg', '124343@qq.com', 2, 0, 0, NULL, '2024-12-05 15:54:50');
 INSERT INTO `user` VALUES (15, 'lihua', '李华', '14e1b600b1fd579f47433b88e8d85291', 'http://localhost:21090/api/campus-product-sys/v1.0/file/getFile?fileName=b3e3d35pic_7.jpg', '654456@qq.com', 2, 1, 0, NULL, '2024-12-05 15:55:12');
 
 -- ============= 分类表 (category) =============
